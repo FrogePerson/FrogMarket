@@ -15,8 +15,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/Frogs")
 public class Controller {
-    
-    private FrogService FrogService = new FrogService();
+    private FrogService FrogService;
+
+    public Controller(FrogService FrogService) {
+        this.FrogService = FrogService;
+    }
     
     @GetMapping
     public List<Frog> getFrogs(){
