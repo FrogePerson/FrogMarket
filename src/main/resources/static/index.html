@@ -1,35 +1,33 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазин Жаб</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Добро пожаловать в магазин жаб!</h1>
-        <nav>
-            <a href="#" id="home">Главная</a>
-            <a href="#" id="cart">Корзина (<span id="cart-count">0</span>)</a>
-        </nav>
-    </header>
-    <main>
-        <section id="product-list">
-            <!-- Продукты будут загружены сюда через JavaScript -->
-        </section>
-        <section id="cart-section" style="display: none;">
-            <h2>Корзина</h2>
-            <div id="cart-items">
-                <p>Корзина пуста</p>
-            </div>
-            <button id="checkout">Оформить заказ</button>
-        </section>
-    </main>
-    <footer>
-        <p>© 2024 Магазин Жаб. Все права защищены.</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Магазин Жаб</title> 
+    <link rel="stylesheet" href="styles.css"> 
+</head> 
+<body> 
+    <div class="header">
+        <h1>Магазин Жаб</h1>
+    </div>
 
+    <div id="product-list"></div> 
+    <button id="cart-button" onclick="toggleCart()">Корзина (<span id="cart-count">0</span>)</button> 
+
+    <!-- Модальное окно для корзины --> 
+    <div id="cart-modal" class="modal"> 
+        <div class="modal-content"> 
+            <span class="close" onclick="toggleCart()">&times;</span> 
+            <h2>Корзина</h2> 
+            <div id="cart-contents"></div> 
+            <button onclick="toggleCart()">Закрыть</button> 
+        </div> 
+    </div> 
+
+    <div class="footer">
+        <p>Все права жаб защищены</p>
+    </div>
+
+    <script src="script.js"></script> 
+</body> 
+</html>

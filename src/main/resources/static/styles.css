@@ -1,90 +1,126 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #121212; /* Тёмный фон */
     color: #e0e0e0; /* Светлый текст */
-}
-
-header {
-    background-color: #1f1f1f; /* Темнее заголовка */
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    border-bottom: 1px solid #333; /* Линия снизу */
-}
-
-nav a {
-    color: #bb86fc; /* Светло-фиолетовый цвет для ссылок */
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    text-decoration: underline; /* Подчёркивание при наведении */
-}
-
-main {
-    padding: 1rem;
+    margin: 0;
+    padding: 0px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    min-height: 100vh; /* Обеспечивает полный экран */
+}
+
+.header {
+    width: 100%; /* Полная ширина */
+    background-color: #1e1e1e; /* Тёмный фон для полосы */
+    padding: 10px 0;
+    text-align: center; /* Центрирование текста */
+}
+
+.footer {
+    width: 100%; /* Полная ширина */
+    background-color: #1e1e1e; /* Тёмный фон для полосы */
+    padding: 10px 0;
+    text-align: center; /* Центрирование текста */
+    margin-top: auto; /* Отодвигаем вниз */
+}
+
+h1, h2 {
+    color: #ffffff; /* Белый цвет заголовков */
 }
 
 #product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-direction: column; /* Расположение продуктов по вертикали */
+    align-items: center; /* Центрирование продуктов по горизонтали */
 }
 
 .product {
-    background-color: #1e1e1e; /* Тёмный фон для продуктов */
-    border: 1px solid #333; /* Светлая граница */
+    background: #1e1e1e; /* Тёмный фон для продуктов */
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid #333; /* Тёмная граница */
     border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-    transition: transform 0.2s; /* Анимация при наведении */
+    transition: transform 0.2s; /* Плавный переход для увеличения */
+    width: 300px; /* Ширина для продуктов */
 }
 
 .product:hover {
     transform: scale(1.05); /* Увеличение при наведении */
 }
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #1f1f1f;
-    color: white;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-}
-
-#cart-section {
-    margin-top: 20px;
-    background-color: #1e1e1e; /* Тёмный фон для корзины */
-    border: 1px solid #333; /* Светлая граница */
-    padding: 10px;
-    border-radius: 5px;
-}
-
 button {
-    background-color: #bb86fc; /* Светло-фиолетовая кнопка */
-    color: #121212; /* Темный текст на кнопке */
+    background-color: #6f42c1; /* Фиолетовый цвет для кнопок */
+    color: #ffffff; /* Белый текст для кнопок */
+    padding: 10px 20px; /* Отступы */
     border: none;
     border-radius: 5px;
-    padding: 10px 15px;
     cursor: pointer;
-    transition: background-color 0.2s; /* Анимация для кнопки */
+    margin: 20px auto; /* Отступ сверху и снизу, авто-отступ слева и справа для центрирования */
+    display: block; /* Поменять на block чтобы button занимала только ширину содержимого */
+    width: auto; /* Задаем автоширину для кнопки */
+    max-width: 200px; /* Устанавливаем максимальную ширину для кнопки */
+    text-align: center;
 }
 
 button:hover {
-    background-color: #9b67d9; /* Более темный фиолетовый при наведении */
+    background-color: #563d7c; /* Темнее при наведении */
 }
 
-.cart-item {
-    background-color: #1e1e1e; /* Тёмный фон для элемента корзины */
-    margin: 5px 0; /* Отступ между элементами корзины */
-    padding: 5px;
+
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Остается на месте */
+    z-index: 1; /* На переднем плане */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ширина и высота экрана */
+    height: 100%;
+    overflow: auto; /* Включить прокрутку при необходимости */
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный тёмный фон */
+}
+
+.modal-content {
+    background-color: #1e1e1e; /* Тёмный фон для модального окна */
+    margin: 10% auto; /* Центровка */
+    padding: 20px;
+    border: 1px solid #444; /* Тёмная граница */
+    width: 320px; /* Ширина модального окна, чуть шире, чем продукты */
+    border-radius: 8px;
+    text-align: center; /* Центрирование текста */
+    position: relative; /* Для абсолютного позиционирования крестика */
+}
+
+.close {
+    color: #e0e0e0; /* Цвет крестика */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 10px; 
+    right: 10px; /* Верхний правый угол */
+    font-size: 28px; 
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #ffffff; /* Белый цвет при наведении */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#cart-contents {
+    margin-top: 15px; /* Отступ сверху для содержимого корзины */
+}
+
+.cart-product {
+    background-color: #6f42c1; /* Фиолетовый цвет для кнопок */
+    color: #ffffff; /* Белый текст для кнопок */
+    padding: 10px 2px; /* Отступы */
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+    margin: 5px; /* Отступ между кнопками */
+    white-space: nowrap; /* Запрет переносов для текста кнопки */
+    display: inline-block; /* Сделать кнопку строчно-блочным элементом */
+}
+
+.cart-product:hover {
+    transform: scale(1.03); /* Увеличение при наведении на продукт корзины */
 }
