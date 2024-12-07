@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Тёмный фон */
+    color: #e0e0e0; /* Светлый текст */
+}
+
+header {
+    background-color: #1f1f1f; /* Темнее заголовка */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #333; /* Линия снизу */
+}
+
+nav a {
+    color: #bb86fc; /* Светло-фиолетовый цвет для ссылок */
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline; /* Подчёркивание при наведении */
+}
+
+main {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background-color: #1e1e1e; /* Тёмный фон для продуктов */
+    border: 1px solid #333; /* Светлая граница */
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s; /* Анимация при наведении */
+}
+
+.product:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1f1f1f;
+    color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+#cart-section {
+    margin-top: 20px;
+    background-color: #1e1e1e; /* Тёмный фон для корзины */
+    border: 1px solid #333; /* Светлая граница */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #bb86fc; /* Светло-фиолетовая кнопка */
+    color: #121212; /* Темный текст на кнопке */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s; /* Анимация для кнопки */
+}
+
+button:hover {
+    background-color: #9b67d9; /* Более темный фиолетовый при наведении */
+}
+
+.cart-item {
+    background-color: #1e1e1e; /* Тёмный фон для элемента корзины */
+    margin: 5px 0; /* Отступ между элементами корзины */
+    padding: 5px;
+    border-radius: 5px;
+}
