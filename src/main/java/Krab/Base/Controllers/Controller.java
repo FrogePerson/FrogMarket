@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import Krab.Base.GLOBAL;
 
 import Krab.Base.Services.FrogService;
 
@@ -16,27 +20,25 @@ import Krab.Base.Models.Frog;
 import java.util.List;
 
 
-
 @RestController
 @RequestMapping("/Frogs")
 public class Controller {
     private FrogService FrogService;
 
-    public Controller(FrogService FrogService) {
+    @Autowired
+    public Controller(@Qualifier(GLOBAL.FROG_SERVICE)FrogService FrogService) {
         this.FrogService = FrogService;
     }
     
     @GetMapping
     public List<Frog> getFrogs(){
         
-        //todo
-        
         return FrogService.getFrogs();
     }
     
     @PostMapping("saveFrog")
     public String saveFrog(@RequestBody Frog Frog){
-        FrogService.SeveFrog(Frog);
+        FrogService.SaveFrog(Frog);
         return "OK: Frog SAVED";
     }
     

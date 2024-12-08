@@ -1,16 +1,15 @@
 package Krab.Base.Services.Impl;
 
-import org.springframework.stereotype.Service;
-
 import Krab.Base.Models.Frog;
 import Krab.Base.Services.FrogService;
 import Krab.Base.repository.InMemory;
+import Krab.Base.BaseConnection.Insert;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 
-@Service("FrogsInMemoryServiceImpl")
-public class FrogsInMemoryServiceImpl implements FrogService{
-    private final InMemory repository;
+@Service("FrogsInBaseImpl")
+public class FrogsInBaseImpl implements FrogService{
 
     @Override
     public List<Frog> getFrogs() {
@@ -21,32 +20,30 @@ public class FrogsInMemoryServiceImpl implements FrogService{
         Frog Frog4 = new Frog(4,"Mui Stack",980);
         */
         
-        return repository.getFrogs();
+        return null;
     }
 
-    public FrogsInMemoryServiceImpl(InMemory repository) {
-        this.repository = repository;
+    public FrogsInBaseImpl(InMemory repository) {
+        
     }
 
     @Override
     public Frog SaveFrog(Frog Frog) {
-        return repository.SeveFrog(Frog);
+        Insert.addFrog(Frog.getName(), Frog.getCost());
+        return Frog;
     }
 
     @Override
     public Frog FindByName(String name) {
-        return repository.FindByName(name);
+        return null;
     }
 
     @Override
     public Frog UpdateFrog(Frog Frog) {
-        return repository.UpdateFrog(Frog);
+        return null;
     }
     @Override
     public void DeleteFrog(String name) {
-        repository.DeleteFrog(name);
+        
     }
-    
-    
-    
 }
