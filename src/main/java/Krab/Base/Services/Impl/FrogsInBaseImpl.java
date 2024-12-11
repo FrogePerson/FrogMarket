@@ -3,7 +3,7 @@ package Krab.Base.Services.Impl;
 import Krab.Base.Models.Frog;
 import Krab.Base.Services.FrogService;
 import Krab.Base.repository.InMemory;
-import Krab.Base.BaseConnection.Insert;
+import Krab.Base.BaseConnection.*;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -44,6 +44,6 @@ public class FrogsInBaseImpl implements FrogService{
     }
     @Override
     public void DeleteFrog(String name) {
-        
+        Delete.deleteFrogByName(name);
     }
 }

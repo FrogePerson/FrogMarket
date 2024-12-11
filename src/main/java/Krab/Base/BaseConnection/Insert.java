@@ -2,9 +2,7 @@ package Krab.Base.BaseConnection;
 
 import Krab.Base.BaseConnection.ConnectionToFrogs;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
