@@ -2,48 +2,52 @@ package Krab.Base.Services.Impl;
 
 import Krab.Base.Models.Frog;
 import Krab.Base.Services.FrogService;
-import Krab.Base.repository.InMemory;
-import Krab.Base.BaseConnection.*;
+import Krab.Base.repository.InBase;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service("FrogsInBaseImpl")
 public class FrogsInBaseImpl implements FrogService{
+     private final InBase repository;
 
     @Override
     public List<Frog> getFrogs() {
-        /*Frog Frog0 = new Frog(0,"Pablo",1580);
-        Frog Frog1 = new Frog(1,"Pepitto",1770);
-        Frog Frog2 = new Frog(2,"Katawunga",1520);
-        Frog Frog3 = new Frog(3,"Mui",1980);
-        Frog Frog4 = new Frog(4,"Mui Stack",980);
-        */
-        
-        return null;
+        return this.repository.getFrogs();
     }
 
-    public FrogsInBaseImpl(InMemory repository) {
-        
+    public FrogsInBaseImpl(InBase repository) {
+        this.repository = repository;
     }
 
     @Override
     public Frog SaveFrog(Frog Frog) {
-        Insert.addFrog(Frog.getName(), Frog.getCost());
-        return Frog;
+        return repository.SaveFrog(Frog);
     }
 
     @Override
     public Frog FindByName(String name) {
-        return null;
+        return this.repository.FindByName(name);
     }
 
     @Override
     public Frog UpdateFrog(Frog Frog) {
-        return null;
+        return this.repository.UpdateFrog(Frog);
     }
     @Override
     public void DeleteFrog(String name) {
-        Delete.deleteFrogByName(name);
+        this.repository.deleteFrogByName(name);
     }
+
+    @Override
+    public void addColumn(String columnName, String columnType) {
+        this.repository.addColumn(columnName,columnType);
+    }
+
+    @Override
+    public void delleteColumn(String columnName) {
+        this.repository.delleteColumn(columnName);
+    }
+    
+    
 }

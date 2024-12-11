@@ -9,4 +9,6 @@ public interface FrogService {
    Frog FindByName(String name);
    Frog UpdateFrog(Frog Frog);
    void DeleteFrog(String name);
+   void addColumn(String columnName, String columnType);
+   void delleteColumn(String columnName);
 }

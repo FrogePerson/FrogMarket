@@ -47,6 +47,14 @@ public class FrogsInMemoryServiceImpl implements FrogService{
         repository.DeleteFrog(name);
     }
     
-    
+    @Override
+    public void addColumn(String columnName, String columnType) {
+        
+    }
+
+    @Override
+    public void delleteColumn(String columnName) {
+        
+    }
     
 }

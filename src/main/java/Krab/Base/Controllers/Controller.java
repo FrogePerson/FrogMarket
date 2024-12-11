@@ -56,4 +56,14 @@ public class Controller {
     public void DeleteFrog(@PathVariable String name){
         FrogService.DeleteFrog(name);
     }
+    
+    @PutMapping("addColumn/{columnName}/{columnType}")
+    public void addColumn(@PathVariable String columnName, @PathVariable String columnType){
+        FrogService.addColumn(columnName,columnType);
+    }
+    
+    @PutMapping("delleteColumn/{columnName}")
+    public void delleteColumn(@PathVariable String columnName){
+        FrogService.delleteColumn(columnName);
+    }
 }
