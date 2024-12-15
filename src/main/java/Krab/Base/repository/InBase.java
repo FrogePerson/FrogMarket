@@ -15,7 +15,7 @@ public class InBase {
 
 
     public Frog SaveFrog(Frog Frog) {
-        Insert.addFrog(Frog.getName(), Frog.getCost());
+        Insert.addFrog(Frog.getName(), Frog.getCost(), Frog.getImage());
         return Frog;
     }
 

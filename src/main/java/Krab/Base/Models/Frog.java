@@ -5,14 +5,16 @@ public class Frog {
     private int id;
     private String name;
     private int cost;
+    private byte[] image;
 
     public Frog() {
     }
 
-    public Frog(int id, String name, int cost) {
+    public Frog(int id, String name, int cost, byte[] image) {
         this.id = id;
         this.name = name;
         this.cost = cost;
+        this.image = image;
     }
 
     public int getId() {
@@ -37,6 +39,14 @@ public class Frog {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
     
     

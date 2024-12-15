@@ -17,7 +17,7 @@ public class Select {
 
         try {
             connection = ConnectionToFrogs.connect();
-            String sql = "SELECT id, name, cost FROM frogs";
+            String sql = "SELECT id, name, cost, image FROM frogs";
             preparedStatement = connection.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
 
@@ -25,7 +25,8 @@ public class Select {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 int cost = resultSet.getInt("cost");
-                Frog frog = new Frog(id, name, cost);
+                byte[] image = resultSet.getBytes("image");
+                Frog frog = new Frog(id, name, cost, image);
                 frogs.add(frog);
             }
         } catch (SQLException e) {

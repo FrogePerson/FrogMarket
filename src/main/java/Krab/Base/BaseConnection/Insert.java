@@ -7,16 +7,17 @@ import java.sql.SQLException;
 
 
 public class Insert {
-    public static void addFrog(String name, int cost) {
+    public static void addFrog(String name, int cost, byte[] image) {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
 
     try {
         connection = ConnectionToFrogs.connect();
-        String sql = "INSERT INTO frogs (name, cost) VALUES (?, ?)";
+        String sql = "INSERT INTO frogs (name, cost, image) VALUES (?, ?, ?)";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, name);
         preparedStatement.setInt(2, cost);
+        preparedStatement.setBytes(3, image);
 
         int rowsAffected = preparedStatement.executeUpdate();
         System.out.println(rowsAffected + " row(s) inserted.");

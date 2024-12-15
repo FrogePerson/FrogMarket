@@ -57,28 +57,28 @@ button:hover {
     background-color: #563d7c; /* Темнее при наведении */
 }
 .modal {
-    display: none; /* Скрыто по умолчанию */    
-    position: fixed; /* Остается на месте */
-    z-index: 1; /* На переднем плане */    
-    left: 0;
-    top: 0;    
-    width: 100%; /* Ширина и высота экрана */
-    height: 100%;    
-    overflow: auto; /* Включить прокрутку при необходимости */
-    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный тёмный фон */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;  /* Ширина окна */
+    background-color: #1e1e1e;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: none; /* Скрыто по умолчанию, отображается через JS */
 }
 .modal-content {
-    background-color: #1e1e1e; /* Тёмный фон для модального окна */    
-    margin: 10% auto; /* Центровка */
-    padding: 20px;    
-    border: 1px solid #444; /* Тёмная граница */
+    background-color: #1e1e1e; /* Тёмный фон для модального окна */     
     width: 320px; /* Ширина модального окна, чуть шире, чем продукты */    
     border-radius: 8px;
     text-align: center; /* Центрирование текста */    
     position: relative; /* Для абсолютного позиционирования крестика */
 }
 .close {    
-    color: #e0e0e0; /* Цвет крестика */
+    color: #1e1e1e; /* Цвет крестика */
     position: absolute; /* Абсолютное позиционирование */    
     top: 10px; 
     right: 10px; /* Верхний правый угол */    

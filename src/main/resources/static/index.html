@@ -1,44 +1,64 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Магазин Жаб</title>  
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Магазин Жаб</title> 
     <link rel="stylesheet" href="styles.css">  
-</head>  
-<body>  
-    <div class="header"> 
-        <h1>Магазин Жаб</h1> 
-    </div> 
+</head> 
+<body> 
+    <div class="header">   
+        <h1>Магазин Жаб</h1>   
+    </div>   
 
-    <div id="product-list"></div>  
-    <button id="cart-button" onclick="toggleCart()">Корзина (<span id="cart-count">0</span>)</button>  
+    <div id="product-list"></div>    
+    <button id="cart-button" onclick="toggleCart()">Корзина (<span id="cart-count">0</span>)</button>    
 
-    <!-- Модальное окно для корзины -->  
+    <!-- Модальное окно для корзины -->    
     <div id="cart-modal" class="modal">  
-        <div class="modal-content">  
-            <span class="close" onclick="toggleCart()">&times;</span>  
+        <div class="modal-content">   
             <h2>Корзина</h2>  
             <div id="cart-contents"></div>  
             <button onclick="toggleCart()">Закрыть</button>  
         </div>  
+    </div>    
+
+    <!-- Модальное окно для операций с жабами и параметрами -->  
+    <div id="action-panel" class="action-panel">  
+        <button onclick="addFrog()">Добавить жабу</button>  
+        <button onclick="removeFrog()">Убрать жабу</button> 
+        <button onclick="addParameter()">Добавить параметр</button>  
+        <button onclick="removeParameter()">Убрать параметр</button>  
     </div>  
 
-    <!-- Модальное окно для операций с жабами и параметрами -->
-    <div id="action-panel" class="action-panel">
-        <button onclick="addFrog()">Добавить жабу</button>
-        <button onclick="removeFrog()">Убрать жабу</button>
-        <button onclick="addParameter()">Добавить параметр</button>
-        <button onclick="removeParameter()">Убрать параметр</button>
+    <!-- Форма для добавления жабы -->   
+    <div id="add-frog-form" class="modal">     
+        <div style="text-align: center;"> <!-- Центрирование содержимого формы --> 
+            <h2>Добавить Жабу</h2>
+            <input type="text" id="frog-name" placeholder="Имя жабы" required style="margin-bottom: 10px; width: 200px;"> <br> 
+            <input type="number" id="frog-cost" placeholder="Цена жабы" required style="margin-bottom: 10px; width: 200px;"> <br> 
+            <input type="file" id="frog-image" accept="image/*" required style="margin-bottom: 10px;width: 115px;"> <br> 
+            <button onclick="saveFrog()">Сохранить жабу</button>   
+            <button onclick="toggleAddFrogForm()">Закрыть</button>   
+        </div> 
     </div>
 
+
+
+
     <!-- Стрелка для управления панелью -->
-    <div class="arrow" onclick="toggleActionPanel()">&#8595;</div> 
+    <div class="arrow" onclick="toggleActionPanel()">&#8595;</div>   
 
-    <div class="footer"> 
-        <p>Все права жаб защищены</p> 
-    </div> 
+    <div class="footer">   
+        <p>Все права жаб защищены</p>   
+    </div>   
 
-    <script src="script.js"></script>  
-</body>  
+    <script src="script.js"></script> 
+    <script>
+        function toggleAddFrogForm() {
+            const addFrogForm = document.getElementById("add-frog-form");
+            addFrogForm.style.display = addFrogForm.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>    
 </html>
